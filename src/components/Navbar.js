@@ -47,6 +47,7 @@ Navbar.propTypes = {
   title: PropTypes.string.isRequired, //It means that this should be sent and if not sent then it throws an error
   aboutText: PropTypes.string, //If something other than string is returned then it throws an error
   toggleMode: PropTypes.func.isRequired,
+  showAlert: PropTypes.func.isRequired
 };
 
 //If props arent sent, we use these as default

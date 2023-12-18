@@ -13,12 +13,14 @@ export default function TextForm(props) {
     // console.log("Upper case was clicked");
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert({alertType:"success",alertMessage:"Succesfully converted to uppercase"});
   };
 
   const handleLowerCaseClick = () => {
     // console.log("Upper case was clicked");
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert({alertType:"success",alertMessage:"Succesfully converted to lowercase"});
   };
 
   const handleOnChange = (event) => {
@@ -71,6 +73,7 @@ export default function TextForm(props) {
 
 TextForm.propTypes = {
   heading: PropTypes.string.isRequired,
+  showAlert:PropTypes.func.isRequired,
   mode: PropTypes.string,
 };
 
