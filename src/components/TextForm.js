@@ -46,13 +46,7 @@ export default function TextForm(props) {
           <label htmlFor="myTextArea" className="form-label my-3 fs-3">
             {props.label}
           </label>
-          <textarea
-            className="form-control"
-            id="myTextArea"
-            rows="10"
-            value={text}
-            onChange={handleOnChange}
-          ></textarea>
+          <textarea className="form-control" id="myTextArea" rows="10" value={text} onChange={handleOnChange} style={{ backgroundColor: props.mode === "light" ? "white" : "#212529", color: props.mode === "light" ? "black" : "#c2c2c2" }}></textarea>
         </div>
         <button className="btn btn-primary mx-1" onClick={handleUpperCaseClick}>
           Convert to Uppercase
@@ -67,12 +61,9 @@ export default function TextForm(props) {
           {" "}
           Your text has {findWordCount(text)} words and {text.length} characters
         </p>
-        <p>
-          It takes {0.008 * findWordCount(text)} minutes on average to read what
-          you just typed
-        </p>
+        <p>It takes {0.008 * findWordCount(text)} minutes on average to read what you just typed</p>
         <h2 className="mt-4">Preview</h2>
-        <p>{text}</p>
+        <p>{text.length === 0 ? "Enter text inside text box to analyze" : text}</p>
       </div>
     </>
   );
@@ -80,8 +71,10 @@ export default function TextForm(props) {
 
 TextForm.propTypes = {
   heading: PropTypes.string.isRequired,
+  mode: PropTypes.string,
 };
 
 TextForm.defaultProps = {
   label: "Start typing below",
+  mode: "light",
 };
