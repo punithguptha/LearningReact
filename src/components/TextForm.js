@@ -29,12 +29,13 @@ export default function TextForm(props) {
   };
 
   const findWordCount = (sentence) => {
-    let wordsArray=text.split(" ").filter((element)=>{return element.length!==0});
+    //This is splitting by regular expression. It splits by spaces and new lines
+    let wordsArray=text.split(/\s+/).filter((element)=>{return element.length!==0});
     return wordsArray.length;
   };
 
   const findCharacterCount=(sentence)=>{
-    let wordsArray=text.split(" ").filter((element)=>{return element.length!==0});
+    let wordsArray=text.split(/\s+/).filter((element)=>{return element.length!==0});
     let characterCount=0;
     wordsArray.forEach((word)=>{
       characterCount+=word.length;
